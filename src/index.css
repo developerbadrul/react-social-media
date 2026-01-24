@@ -1,0 +1,67 @@
+/* 1. CUSTOM IMPORTS MUST BE AT THE VERY TOP */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+/* 2. TAILWIND & PLUGINS */
+@import "tailwindcss";
+@plugin "@tailwindcss/typography"; /* Added missing semicolon */
+
+/* 3. THEME CONFIGURATION */
+@theme {
+  --font-inter: "Inter", sans-serif;
+
+  --color-deep-dark: #17181C;
+  --color-medium-dark: #1E1F24;
+  --color-lighter-dark: #27292F;
+}
+
+/* 4. BASE STYLES */
+@layer base {
+  body {
+    @apply bg-deep-dark font-inter text-gray-100;
+  }
+}
+
+/* 5. CUSTOM UTILITIES */
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility card {
+  @apply rounded-md border border-[#3F3F3F] bg-medium-dark px-4 py-4 lg:px-7 lg:py-5;
+}
+
+@utility btn-primary {
+  @apply flex-center gap-2 rounded-md bg-lighter-dark px-5 py-2.5 text-sm font-medium text-white hover:bg-deep-dark lg:text-lg;
+}
+
+@utility icon-btn {
+  @apply flex-center rounded-md bg-lighter-dark p-1.5 font-medium text-white hover:bg-deep-dark;
+}
+
+@utility form-control {
+  @apply mb-6 space-y-2.5;
+}
+
+@utility auth-label {
+  @apply leading-[138%] lg:text-lg;
+}
+
+@utility auth-input {
+  @apply w-full rounded-md border border-[#CCCCCC]/14 bg-lighter-dark p-1.5 focus:outline-none lg:p-3;
+}
+
+@utility post-avater {
+  @apply max-w-10 max-h-10 rounded-full lg:max-h-[58px] lg:max-w-[58px];
+}
+
+@utility action-modal-container {
+  @apply card absolute right-full top-6 min-w-[200px] divide-y divide-[#3F3F3F] py-2;
+  
+  & > button {
+    @apply py-2;
+  }
+}
+
+@utility action-menu-item {
+  @apply flex w-full items-center gap-2 text-gray-100 transition-all;
+}
