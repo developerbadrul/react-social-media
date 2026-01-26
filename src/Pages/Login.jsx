@@ -6,7 +6,7 @@ const Login = () => {
 
 
     return (
-        <div>
+        <>
             <main className="flex min-h-screen items-center justify-center bg-deepDark py-8">
                 <div className="max-w-5xl flex-1">
                     <div className="container grid items-center gap-8 lg:grid-cols-2">
@@ -43,7 +43,7 @@ const Login = () => {
                     </div>
                 </div>
             </main>
-        </div>
+        </>
     );
 };
 
