@@ -3,15 +3,23 @@ import Home from "../Pages/Home";
 import Profile from "../Pages/Profile";
 import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
+import RootLayout from "../layouts/RootLayout";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        Component: Home,
-    },
-    {
-        path: "/profile",
-        Component: Profile
+        Component: RootLayout,
+        children: [
+            {
+                path: "profile",
+                Component: Profile
+            },
+            {
+                path: "/",
+                Component: Home,
+                index: true
+            },
+        ]
     },
     {
         path: "/login",
