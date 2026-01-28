@@ -1,10 +1,15 @@
 import { useForm } from "react-hook-form";
 import Field from "./Field";
 import { publicApi } from "../apis/axios";
+import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm(
+    const navigate = useNavigate()
+    const { setAuth } = useAuth()
+
+    const { register, handleSubmit, formState: { errors }, setError } = useForm(
         {
             defaultValues: {
                 email: "saadh392@mail.com",
@@ -12,15 +17,37 @@ const LoginForm = () => {
             }
         });
 
-    const onSubmit = async(formData) => {
+    const onSubmit = async (formData) => {
         console.log(formData);
+
         try {
             const response = await publicApi.post('/auth/login', formData)
             console.log(response);
-            
+
+            if (response.status !== 200) {
+                throw new Error("Server Down")
+            }
+
+            if (response.status === 200) {
+                const { token, user } = response.data;
+
+                if (token) {
+                    const authToken = token.token;
+                    const refreshToken = token.refreshToken;
+
+                    console.log("login time auth token", authToken);
+                    setAuth({ user, authToken, refreshToken });
+
+                    navigate('/');
+                }
+            }
+
         } catch (error) {
-            console.log(error.message);
-            
+            // console.log(error.message);
+            setError('root.random', {
+                type: 'random',
+                message: `Server Message:  ${error?.message}`
+            })
         }
     };
 
@@ -52,7 +79,7 @@ const LoginForm = () => {
                     id="password"
                 />
             </Field>
-
+            <p className="text-red-500">{errors?.root?.random?.message}</p>
             <Field>
                 <button
                     className="auth-input bg-green-500 font-bold text-deepDark transition-all hover:opacity-90"
