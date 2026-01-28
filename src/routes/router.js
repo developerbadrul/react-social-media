@@ -4,23 +4,31 @@ import Profile from "../Pages/Profile";
 import Login from "../Pages/Login";
 import Registration from "../Pages/Registration";
 import RootLayout from "../layouts/RootLayout";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
+    // privete route
     {
-        path: "/",
-        Component: RootLayout,
+        Component: PrivateRoute,
         children: [
             {
-                path: "profile",
-                Component: Profile
-            },
-            {
                 path: "/",
-                Component: Home,
-                index: true
+                Component: RootLayout,
+                children: [
+                    {
+                        path: "profile",
+                        Component: Profile
+                    },
+                    {
+                        path: "/",
+                        Component: Home,
+                        index: true
+                    },
+                ]
             },
         ]
     },
+    // public route
     {
         path: "/login",
         Component: Login
