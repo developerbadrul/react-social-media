@@ -3,10 +3,18 @@ import Field from "./Field";
 
 
 const LoginForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm(
+        {
+            defaultValues: {
+                email: "saadh392@mail.com",
+                password: "bestPassw0rd"
+            }
+        });
 
-    const onSubmit = (data) => console.log(data);
-    ;
+    const onSubmit = (data) => {
+        console.log(data);
+        
+    };
 
     return (
         <form
@@ -39,7 +47,7 @@ const LoginForm = () => {
 
             <Field>
                 <button
-                    className="auth-input bg-lwsGreen font-bold text-deepDark transition-all hover:opacity-90"
+                    className="auth-input bg-green-500 font-bold text-deepDark transition-all hover:opacity-90"
                     type="submit"
                 >
                     Login
