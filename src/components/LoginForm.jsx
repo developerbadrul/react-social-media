@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import Field from "./Field";
+import { publicApi } from "../apis/axios";
 
 
 const LoginForm = () => {
@@ -11,9 +12,16 @@ const LoginForm = () => {
             }
         });
 
-    const onSubmit = (data) => {
-        console.log(data);
-        
+    const onSubmit = async(formData) => {
+        console.log(formData);
+        try {
+            const response = await publicApi.post('/auth/login', formData)
+            console.log(response);
+            
+        } catch (error) {
+            console.log(error.message);
+            
+        }
     };
 
     return (
