@@ -12,7 +12,6 @@ const router = createBrowserRouter([
         Component: PrivateRoute,
         children: [
             {
-                path: "/",
                 Component: RootLayout,
                 children: [
                     {
