@@ -36,14 +36,20 @@ const usePrivateAxios = () => {
                         console.log(`New Token: ${token}`);
 
                         setAuth({ ...auth, authToken: token });
+                        originalRequest.headers.Authorization = `Bearar ${token}`;
+                        return publicApi(originalRequest);
                     } catch (error) {
-
+                        throw Error(error);
                     }
                 }
             }
 
         )
-
+        return () => {
+            privateApi.interceptors.request.eject(requestIntercept)
+            privateApi.interceptors.response.eject(responseIntercept)
+        }
+        
     }, [])
 
 };
