@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import useAuth from "./useAuth";
 import { privateApi, publicApi } from "../apis/axios";
+import axios from "axios";
 
 const usePrivateAxios = () => {
     const { auth, setAuth } = useAuth();
@@ -31,14 +32,16 @@ const usePrivateAxios = () => {
                     try {
                         const refreshToken = auth?.refreshToken;
 
-                        const response = await publicApi.post(`/auth/refresh-token`, { refreshToken });
+                        const response = await axios.post(`/auth/refresh-token`, { refreshToken });
                         const { token } = response.data;
                         console.log(`New Token: ${token}`);
 
-                        setAuth({ ...auth, authToken: token });
+                        setAuth(prev => ({ ...prev, authToken: token }));
+
                         originalRequest.headers.Authorization = `Bearar ${token}`;
-                        return publicApi(originalRequest);
+                        return axios(originalRequest);
                     } catch (error) {
+                        setAuth({})
                         throw Error(error);
                     }
                 }
@@ -49,8 +52,11 @@ const usePrivateAxios = () => {
             privateApi.interceptors.request.eject(requestIntercept)
             privateApi.interceptors.response.eject(responseIntercept)
         }
-        
-    }, [])
+
+    }, [auth?.authToken]);
+
+    return { privateApi };
+
 
 };
 
