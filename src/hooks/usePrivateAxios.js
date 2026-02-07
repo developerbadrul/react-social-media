@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import useAuth from "./useAuth";
-import { privateApi, publicApi } from "../apis/axios";
+import { privateApi } from "../apis/axios";
 import axios from "axios";
 
 const usePrivateAxios = () => {
@@ -32,7 +32,7 @@ const usePrivateAxios = () => {
                     try {
                         const refreshToken = auth?.refreshToken;
 
-                        const response = await axios.post(`/auth/refresh-token`, { refreshToken });
+                        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/auth/refresh-token`, { refreshToken });
                         const { token } = response.data;
                         console.log(`New Token: ${token}`);
 
