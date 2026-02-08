@@ -34,7 +34,7 @@ const usePrivateAxios = () => {
 
                         const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/auth/refresh-token`, { refreshToken });
                         const { token } = response.data;
-                        console.log(`New Token: ${token}`);
+                        // console.log(`New Token: ${token}`);
 
                         setAuth(prev => ({ ...prev, authToken: token }));
 
