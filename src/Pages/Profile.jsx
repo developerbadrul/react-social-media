@@ -3,6 +3,8 @@ import useAuth from "../hooks/useAuth";
 import useProfile from "../hooks/useProfile";
 import usePrivateAxios from "../hooks/usePrivateAxios";
 import { actions } from "../actions";
+import ProfileInfo from "../components/Profile/ProfileInfo";
+import MyPosts from "../components/Profile/MyPosts";
 
 const Profile = () => {
     const { state, dispatch } = useProfile();
@@ -13,7 +15,7 @@ const Profile = () => {
         dispatch({ type: actions.profile.DATA_FETCHING })
         const fetchProfile = async () => {
             try {
-                
+
                 const response = await privateApi.get(`/profile/${auth?.user?.id}`);
 
                 if (response.status === 200) {
@@ -41,9 +43,10 @@ const Profile = () => {
     }
 
     return (
-        <div>
-            profile page
-        </div>
+        <>
+            <ProfileInfo />
+            <MyPosts />
+        </>
     );
 };
 

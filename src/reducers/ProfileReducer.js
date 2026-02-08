@@ -43,6 +43,17 @@ const profileReducer = (state, action) => {
             }
         }
 
+       case actions.profile.IMAGE_UPDATED: {
+            return {
+                ...state,
+                loading: false,
+                user: {
+                    ...state.user,
+                    avatar: action.data.avatar,
+                },
+            };
+        }
+
         default: {
             return state
         }
