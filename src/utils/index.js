@@ -11,36 +11,43 @@ export const getChildId = (children) => {
 
 
 
-export const getDateDifferenceFromNow = (fromDate) => {
-    const now = Date.now();
-    const target = new Date(fromDate).getTime();
+export function getDateDifferenceFromNow(date) {
+  const target = new Date(date);
+  if (isNaN(target)) return 'Invalid date';
 
-    if (isNaN(target)) return "Invalid Date";
+  const now = new Date();
+  const diffMs = target - now;
+  const diffSec = Math.round(diffMs / 1000);
+  const diffMin = Math.round(diffSec / 60);
+  const diffHour = Math.round(diffMin / 60);
+  const diffDay = Math.round(diffHour / 24);
 
-    let diff = Math.floor((now - target) / 1000); // second
-    const isPast = diff < 0;
-    diff = Math.abs(diff);
+  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
 
-    const units = [
-        { label: 'day', value: 86400 },
-        { label: 'hour', value: 3600 },
-        { label: 'minute', value: 60 },
-        { label: 'second', value: 1 },
-    ];
+  // Less than 1 minute
+  if (Math.abs(diffSec) < 60) {
+    return 'just now';
+  }
 
-    const parts = [];
+  // Less than 1 hour
+  if (Math.abs(diffMin) < 60) {
+    return rtf.format(diffMin, 'minute');
+  }
 
-    for (const unit of units) {
-        const amount = Math.floor(diff / unit.value);
-        if (amount > 0) {
-            parts.push(`${amount} ${unit.label}${amount > 1 ? 's' : ''}`)
-            diff %= unit.value
-        }
+  // Less than 1 day
+  if (Math.abs(diffHour) < 24) {
+    return rtf.format(diffHour, 'hour');
+  }
 
-        if (parts.length === 2) break;
-    }
+  // Less than 2 days
+  if (Math.abs(diffDay) < 2) {
+    return rtf.format(diffDay, 'day'); // yesterday / tomorrow
+  }
 
-    if (parts.length === 0) return 'just now';
-
-    return isPast ? `${parts.join(" ")} ago` : `in ${parts.join(" ")}`;
-};
+  // Otherwise → ACTUAL DATE
+  return target.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}
