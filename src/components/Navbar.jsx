@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import Logo from "./../assets/images/logo.svg"
 import Home from "./../assets/icons/home.svg"
 import Notification from "./../assets/icons/notification.svg"
-import Logout from "./../assets/icons/logout.svg"
 import avatarPic from "./../assets/images/avatars/avatar_1.png"
 import useProfile from "../hooks/useProfile";
 import useAuth from "../hooks/useAuth";
+import Logout from "./Logout";
 
 
 const Navbar = () => {
@@ -31,9 +31,8 @@ const Navbar = () => {
                     <button className="icon-btn">
                         <img src={Notification} alt="Notification" />
                     </button>
-                    <button className="icon-btn">
-                        <img src={Logout} alt="Logout" />
-                    </button>
+
+                    <Logout />
 
                     <Link to="/profile" className="flex-center ml-8! gap-3">
                         <span className="text-lg font-medium lg:text-xl">{user?.firstName} {user?.lastName}</span>
