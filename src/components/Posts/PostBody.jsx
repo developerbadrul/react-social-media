@@ -9,7 +9,7 @@ const PostBody = ({ poster, content }) => {
                 {poster && (
                     <img
                         className="w-1/2"
-                        src={`${import.meta.env.VITE_SERVER_BASE_URL
+                        src={`${import.meta.env.VITE_API_BASE_URL
                             }/${poster}`}
                         alt="poster"
                     />
