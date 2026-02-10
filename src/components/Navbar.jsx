@@ -3,10 +3,17 @@ import Logo from "./../assets/images/logo.svg"
 import Home from "./../assets/icons/home.svg"
 import Notification from "./../assets/icons/notification.svg"
 import Logout from "./../assets/icons/logout.svg"
-import avatar from "./../assets/images/avatars/avatar_1.png"
+import avatarPic from "./../assets/images/avatars/avatar_1.png"
+import useProfile from "../hooks/useProfile";
+import useAuth from "../hooks/useAuth";
 
 
 const Navbar = () => {
+    const { state } = useProfile();
+    const { auth } = useAuth();
+
+    const user = state?.user ?? auth?.user ?? avatarPic;
+
     return (
         <nav className="sticky top-0 z-50 border-b border-[#3F3F3F] bg-medium-dark py-4">
             <div className="container flex flex-col items-center justify-between gap-6 sm:flex-row">
@@ -29,12 +36,12 @@ const Navbar = () => {
                     </button>
 
                     <Link to="/profile" className="flex-center ml-8! gap-3">
-                        <span className="text-lg font-medium lg:text-xl">Sumit</span>
-                        <img className="max-h-8 max-w-8 lg:max-h-11 lg:max-w-11"
-                            src={avatar} alt="" />
+                        <span className="text-lg font-medium lg:text-xl">{user?.firstName} {user?.lastName}</span>
+                        <img className="max-h-8 max-w-8 lg:max-h-11 lg:max-w-11 rounded-full"
+                            src={`${import.meta.env.VITE_API_BASE_URL}/${user.avatar}`} alt="avatar" />
                     </Link>
                 </div>
-               
+
             </div>
         </nav>
     );
