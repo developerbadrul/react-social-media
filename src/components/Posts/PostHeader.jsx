@@ -11,6 +11,7 @@ import usePost from "../../hooks/usePost";
 const PostHeader = ({ post }) => {
     const [showAction, setShowAction] = useState(false);
     const { avatarURL } = useAvatar(post);
+    const { dispatch } = usePost();
     
 
     const toggleAction = () => {
