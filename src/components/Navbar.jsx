@@ -12,7 +12,9 @@ const Navbar = () => {
     const { state } = useProfile();
     const { auth } = useAuth();
 
-    const user = state?.user ?? auth?.user ?? avatarPic;
+    const user = state?.user ?? auth?.user;
+
+    const avatarSrc = user?.avatar ? `${import.meta.env.VITE_API_BASE_URL}/${user.avatar}` : avatarPic;
 
     return (
         <nav className="sticky top-0 z-50 border-b border-[#3F3F3F] bg-medium-dark py-4">
@@ -37,7 +39,7 @@ const Navbar = () => {
                     <Link to="/profile" className="flex-center ml-8! gap-3">
                         <span className="text-lg font-medium lg:text-xl">{user?.firstName} {user?.lastName}</span>
                         <img className="max-h-8 max-w-8 lg:max-h-11 lg:max-w-11 rounded-full"
-                            src={`${import.meta.env.VITE_API_BASE_URL}/${user.avatar}`} alt="avatar" />
+                            src={avatarSrc} alt="avatar" />
                     </Link>
                 </div>
 

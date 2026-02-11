@@ -514,6 +514,23 @@
       "avatar": "uploads/avatar/avatar-1708802845791-219561000.png",
       "email": "rambo@email.com",
       "bio": "I am Rambo!!!"
+    },
+    {
+      "id": "e5076677-4170-4c4d-8994-84ea21f44a38",
+      "password": "$2b$08$RI7zaaK22.kSpaKIMhbiMecCpi47Ym2cXh8x0RjOKJv85V5UQmmg.",
+      "firstName": "eseghh",
+      "lastName": "SDODGJIJR",
+      "avatar": "uploads/avatar/avatar-1770796855344-751211761.jpg",
+      "email": "dummy@mail.com",
+      "bio": "I am new user"
+    },
+    {
+      "id": "c90ece72-f3b6-461f-97df-4fa9e8ce45a1",
+      "password": "$2b$08$W9sZjsp48HtOd6ud708cO.1Kwm0nlTTt3upIvXoXqRxTyr9T1ww.q",
+      "firstName": "Md Badrul",
+      "lastName": "Alam",
+      "avatar": "uploads/avatar/avatar-1770798551222-945259606.png",
+      "email": "developer@gmail.com"
     }
   ]
 }

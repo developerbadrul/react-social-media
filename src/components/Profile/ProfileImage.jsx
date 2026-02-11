@@ -3,6 +3,8 @@ import usePrivateAxios from "../../hooks/usePrivateAxios";
 import useProfile from "../../hooks/useProfile";
 import { actions } from "../../actions";
 import EditIcon from "../../assets/icons/edit.svg";
+import avatarPic from "./../../assets/images/avatars/avatar_1.png"
+
 
 
 const ProfileImage = () => {
@@ -48,7 +50,11 @@ const ProfileImage = () => {
         <div className="relative mb-8 max-h-45 max-w-45 rounded-full lg:mb-11 lg:max-h-54.5 lg:max-w-54.5">
             <img
                 className="max-w-full rounded-full"
-                src={`${import.meta.env.VITE_API_BASE_URL}/${state?.user?.avatar}`}
+                src={
+                    state?.user?.avatar
+                        ? `${import.meta.env.VITE_API_BASE_URL}/${state.user.avatar}`
+                        : avatarPic
+                }
                 alt={state?.user?.firstName}
             />
 
