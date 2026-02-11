@@ -9,7 +9,7 @@ const LoginForm = () => {
     const navigate = useNavigate()
     const { setAuth } = useAuth()
 
-    const { register, handleSubmit, formState: { errors }, setError } = useForm(
+    const { register, handleSubmit, formState: { errors, isSubmitting }, setError } = useForm(
         {
             defaultValues: {
                 email: "saadh392@mail.com",
@@ -18,11 +18,11 @@ const LoginForm = () => {
         });
 
     const onSubmit = async (formData) => {
-        console.log(formData);
+        // console.log(formData);
 
         try {
             const response = await publicApi.post('/auth/login', formData)
-            console.log(response);
+            // console.log(response);
 
             if (response.status !== 200) {
                 throw new Error("Server Down")
@@ -84,8 +84,9 @@ const LoginForm = () => {
                 <button
                     className="auth-input bg-green-500 font-bold text-deepDark transition-all hover:opacity-90"
                     type="submit"
+                    disabled={isSubmitting}
                 >
-                    Login
+                    {isSubmitting ? "Loging.........." : "Login"}
                 </button>
             </Field>
         </form>
