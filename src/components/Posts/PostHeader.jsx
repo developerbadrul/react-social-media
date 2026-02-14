@@ -11,7 +11,7 @@ import usePrivateAxios from "../../hooks/usePrivateAxios";
 import { actions } from "../../actions";
 import useAuth from "../../hooks/useAuth";
 
-const PostHeader = ({ post }) => {
+const PostHeader = ({ post, dispatchOwn }) => {
     const [showAction, setShowAction] = useState(false);
     const { avatarURL } = useAvatar(post);
     const { auth } = useAuth()
@@ -26,13 +26,14 @@ const PostHeader = ({ post }) => {
 
     const handleDeletePost = async () => {
         dispatch({ type: actions.post.DATA_FETCHING });
+
         try {
             const response = await privateApi.delete(`/posts/${post.id}`);
             if (response.status === 200) {
                 dispatch({
                     type: actions.post.POST_DELETED,
-                    data: post.id
-                })
+                    data: post.id,
+                });
             }
         } catch (error) {
             console.error(error);

@@ -34,7 +34,7 @@ const Home = () => {
     }, [privateApi, dispatch])
 
     if (state?.loading) {
-        return <div> We are working...</div>;
+        return <div> Post Loading...</div>;
     }
 
     if (state?.error) {

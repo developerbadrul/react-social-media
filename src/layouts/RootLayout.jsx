@@ -6,16 +6,16 @@ import PostProvider from "../providers/PostProvider";
 const RootLayout = () => {
     return (
         <>
-            <ProfileProvider>
-                <PostProvider>
+            <PostProvider>
+                <ProfileProvider>
                     <Navbar />
                     <div className="mx-auto max-w-255 py-8">
                         <div className="container">
                             <Outlet />
                         </div>
                     </div>
-                </PostProvider>
-            </ProfileProvider>
+                </ProfileProvider>
+            </PostProvider>
         </>
     );
 };

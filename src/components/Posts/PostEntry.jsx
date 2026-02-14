@@ -13,7 +13,7 @@ const PostEntry = ({ onCreate }) => {
     const { dispatch } = usePost();
     const { privateApi } = usePrivateAxios();
     const { state: profile } = useProfile();
-    const [previewUrl, setPreview] = useState();
+    const [preview, setPreview] = useState();
 
     const user = profile?.user ?? auth?.user;
 
@@ -24,6 +24,7 @@ const PostEntry = ({ onCreate }) => {
         watch
     } = useForm();
 
+    const selectedPhoto = watch("photo");
 
     const handlePostSubmit = async (data) => {
         // console.log(data);
@@ -38,7 +39,7 @@ const PostEntry = ({ onCreate }) => {
                 formData.append("postType", "file")
             }
 
-            console.log("new post", formData);
+            console.dir("new post", formData);
 
             const response = await privateApi.post(`/posts`, formData);
             if (response.status === 200) {
@@ -46,6 +47,12 @@ const PostEntry = ({ onCreate }) => {
                     type: actions.post.DATA_CREATED,
                     data: response.data
                 });
+
+                if (preview) {
+                    URL.revokeObjectURL(preview);
+                    setPreview(null)
+                }
+
                 onCreate();
             }
         } catch (error) {
@@ -57,7 +64,13 @@ const PostEntry = ({ onCreate }) => {
         }
     }
 
-    const selectedPhoto = watch("photo");
+    const removeImage = () => {
+        if (preview) {
+            URL.revokeObjectURL(preview);
+            setPreview(null)
+        }
+    }
+
 
     useEffect(() => {
         if (selectedPhoto?.[0]) {
@@ -70,6 +83,8 @@ const PostEntry = ({ onCreate }) => {
         }
 
     }, [selectedPhoto])
+
+    console.log("preview", preview);
 
     return (
         <div className="card relative">
@@ -110,6 +125,25 @@ const PostEntry = ({ onCreate }) => {
                         className="hidden"
                     />
                 </div>
+
+                {preview && (
+                    <div className="relative mt-4 w-auto">
+                        <img
+                            src={preview}
+                            alt="Preview"
+                            className="max-h-80 rounded-lg object-cover"
+                        />
+
+                        <button
+                            type="button"
+                            onClick={removeImage}
+                            className="absolute top-2 right-2 rounded-full bg-black/60 px-3 py-1 text-sm text-white hover:bg-black"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                )}
+
                 <Field label="" error={errors.content}>
                     <textarea
                         {...register("content", {
@@ -118,16 +152,19 @@ const PostEntry = ({ onCreate }) => {
                         name="content"
                         id="content"
                         placeholder="Share your thoughts..."
-                        className="h-30 w-full bg-transparent focus:outline-none lg:h-40"
+                        className="h-30 w-full bg-transparent focus:outline-none lg:h-4"
                     ></textarea>
                 </Field>
+
+
+
                 <div className="border-t border-[#3F3F3F] pt-4 lg:pt-6">
                     <button
                         disabled={isSubmitting}
                         className="auth-input bg-green-500 font-bold text-deepDark transition-all hover:opacity-90"
                         type="submit"
                     >
-                        {isSubmitting ? "Posting..." : "Post"}
+                        {isSubmitting ? "Posting" : "Post"}
                     </button>
                 </div>
             </form>
