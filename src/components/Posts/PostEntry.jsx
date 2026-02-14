@@ -27,7 +27,7 @@ const PostEntry = ({ onCreate }) => {
 
         dispatch({ type: actions.post.DATA_FETCHING });
         try {
-            const response = await privateApi.post(`${import.meta.env.VITE_API_BASE_URL}/posts`, { formData });
+            const response = await privateApi.post(`${import.meta.env.VITE_API_BASE_URL}/posts`, formData);
             if (response.status === 200) {
                 dispatch({
                     type: actions.post.DATA_CREATED,
