@@ -3,6 +3,7 @@ import PostList from "../components/Posts/PostList";
 import usePost from "../hooks/usePost";
 import usePrivateAxios from "../hooks/usePrivateAxios";
 import { actions } from "../actions";
+import NewPost from "../components/Posts/NewPost";
 
 const Home = () => {
     const { state, dispatch } = usePost();
@@ -30,7 +31,7 @@ const Home = () => {
         }
 
         fetchPost()
-    }, [])
+    }, [privateApi, dispatch])
 
     if (state?.loading) {
         return <div> We are working...</div>;
@@ -42,6 +43,7 @@ const Home = () => {
 
     return (
         <>
+            <NewPost />
             <PostList posts={state?.posts} />
         </>
     );

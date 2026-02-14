@@ -9,7 +9,11 @@ const RootLayout = () => {
             <ProfileProvider>
                 <PostProvider>
                     <Navbar />
-                    <Outlet />
+                    <div className="mx-auto max-w-255 py-8">
+                        <div className="container">
+                            <Outlet />
+                        </div>
+                    </div>
                 </PostProvider>
             </ProfileProvider>
         </>
