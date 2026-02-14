@@ -6,28 +6,41 @@ import useProfile from "../../hooks/useProfile";
 import AddPhoto from "../../assets/icons/addPhoto.svg"
 import { actions } from "../../actions";
 import Field from "../Field";
+import { useEffect, useState } from "react";
 
 const PostEntry = ({ onCreate }) => {
     const { auth } = useAuth();
     const { dispatch } = usePost();
     const { privateApi } = usePrivateAxios();
     const { state: profile } = useProfile();
+    const [previewUrl, setPreview] = useState();
 
     const user = profile?.user ?? auth?.user;
 
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isSubmitting },
+        watch
     } = useForm();
 
 
-    const handlePostSubmit = async (formData) => {
-        console.log("new post", formData);
-
+    const handlePostSubmit = async (data) => {
+        // console.log(data);
         dispatch({ type: actions.post.DATA_FETCHING });
         try {
-            const response = await privateApi.post(`${import.meta.env.VITE_API_BASE_URL}/posts`, formData);
+            const formData = new FormData();
+
+            formData.append("content", data.content);
+
+            if (data.photo?.[0]) {
+                formData.append("image", data.photo[0])
+                formData.append("postType", "file")
+            }
+
+            console.log("new post", formData);
+
+            const response = await privateApi.post(`/posts`, formData);
             if (response.status === 200) {
                 dispatch({
                     type: actions.post.DATA_CREATED,
@@ -43,6 +56,20 @@ const PostEntry = ({ onCreate }) => {
             })
         }
     }
+
+    const selectedPhoto = watch("photo");
+
+    useEffect(() => {
+        if (selectedPhoto?.[0]) {
+            const objectUrl = URL.createObjectURL(selectedPhoto[0]);
+            setPreview(objectUrl)
+
+            return () => {
+                URL.revokeObjectURL(objectUrl);
+            };
+        }
+
+    }, [selectedPhoto])
 
     return (
         <div className="card relative">
@@ -77,8 +104,8 @@ const PostEntry = ({ onCreate }) => {
                         Add Photo
                     </label>
                     <input
+                        {...register("photo")}
                         type="file"
-                        name="photo"
                         id="photo"
                         className="hidden"
                     />
@@ -96,10 +123,11 @@ const PostEntry = ({ onCreate }) => {
                 </Field>
                 <div className="border-t border-[#3F3F3F] pt-4 lg:pt-6">
                     <button
+                        disabled={isSubmitting}
                         className="auth-input bg-green-500 font-bold text-deepDark transition-all hover:opacity-90"
                         type="submit"
                     >
-                        Post
+                        {isSubmitting ? "Posting..." : "Post"}
                     </button>
                 </div>
             </form>

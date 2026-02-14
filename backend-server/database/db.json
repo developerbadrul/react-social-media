@@ -474,6 +474,104 @@
       "comments": [],
       "likes": [],
       "createAt": "2026-02-14T06:00:49.998Z"
+    },
+    {
+      "id": "6e0e8a68-7d4c-4999-8c12-c91db7dcf5c3",
+      "content": "bikash",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+        "name": "Saad Hasan",
+        "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-02-14T06:28:17.038Z"
+    },
+    {
+      "id": "72c585e4-5a36-4964-a2c6-6bb94f328364",
+      "content": "b 2",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+        "name": "Saad Hasan",
+        "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-02-14T06:29:48.101Z"
+    },
+    {
+      "id": "85c1e049-525c-4767-a2a6-44c4498466f4",
+      "content": "HI Post",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+        "name": "Saad Hasan",
+        "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-02-14T06:44:45.063Z"
+    },
+    {
+      "id": "125dddf7-fa52-42ef-bbbb-1157b1331d52",
+      "content": "fgjigi",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+        "name": "Saad Hasan",
+        "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-02-14T06:47:15.828Z"
+    },
+    {
+      "id": "10750123-5275-4c83-a351-a505cea8d984",
+      "content": "Hello",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+        "name": "Saad Hasan",
+        "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-02-14T07:02:20.149Z"
+    },
+    {
+      "id": "3124219c-3764-427e-ab95-eec79d2cc3cd",
+      "content": "HIIIIIIIIIIIIIIIIIIII",
+      "image": null,
+      "postType": "text",
+      "author": {
+        "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+        "name": "Saad Hasan",
+        "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-02-14T07:04:27.416Z"
+    },
+    {
+      "id": "9b6d6b52-b5fc-4af6-9e41-7f183aebc12d",
+      "content": "Hello",
+      "image": "uploads/posts/image-1771052751823-316189317.png",
+      "postType": "image",
+      "author": {
+        "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+        "name": "Saad Hasan",
+        "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
+      },
+      "comments": [],
+      "likes": [],
+      "createAt": "2026-02-14T07:05:51.845Z"
     }
   ],
   "comments": [],
