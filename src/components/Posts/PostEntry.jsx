@@ -122,12 +122,13 @@ const PostEntry = ({ onCreate }) => {
                         {...register("photo")}
                         type="file"
                         id="photo"
+                        accept="image/*"
                         className="hidden"
                     />
                 </div>
 
                 {preview && (
-                    <div className="relative mt-4 w-auto">
+                    <div className="relative mt-4 inline-block">
                         <img
                             src={preview}
                             alt="Preview"
@@ -137,12 +138,13 @@ const PostEntry = ({ onCreate }) => {
                         <button
                             type="button"
                             onClick={removeImage}
-                            className="absolute top-2 right-2 rounded-full bg-black/60 px-3 py-1 text-sm text-white hover:bg-black"
+                            className="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black"
                         >
                             ✕
                         </button>
                     </div>
                 )}
+
 
                 <Field label="" error={errors.content}>
                     <textarea
