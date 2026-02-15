@@ -78,6 +78,8 @@ const PostEntry = ({ onCreate }) => {
             setPreview(objectUrl)
 
             return () => {
+                console.log("execute cleanup");
+                
                 URL.revokeObjectURL(objectUrl);
             };
         }

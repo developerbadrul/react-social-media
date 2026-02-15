@@ -248,7 +248,18 @@
         "name": "Tapas Adhikary",
         "avatar": "uploads/avatar/avatar-1708770640883-148182382.png"
       },
-      "comments": [],
+      "comments": [
+        {
+          "id": "e4b78887-49c1-40f8-9f33-d15679094efc",
+          "comment": "Hello Brother",
+          "createdAt": "2026-02-15T15:29:28.234Z",
+          "author": {
+            "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+            "name": "Saad Hasan",
+            "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
+          }
+        }
+      ],
       "likes": [],
       "createAt": "2024-02-24T12:31:17.794Z"
     },
@@ -290,23 +301,20 @@
         "name": "Saad Hasan",
         "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
       },
-      "comments": [],
+      "comments": [
+        {
+          "id": "b12f25cd-dd5e-4a15-ab79-e5ac8168ee3d",
+          "comment": "I cant Able to solve",
+          "createdAt": "2026-02-15T15:31:05.102Z",
+          "author": {
+            "id": "c90ece72-f3b6-461f-97df-4fa9e8ce45a1",
+            "name": "Md Badrul Alam",
+            "avatar": "uploads/avatar/avatar-1770798551222-945259606.png"
+          }
+        }
+      ],
       "likes": [],
       "createAt": "2026-02-14T07:05:51.845Z"
-    },
-    {
-      "id": "637f8eee-2674-488a-9853-6f1d2917fd3f",
-      "content": "dgvfhbncfhnbch xchxfg sejhsjkhghgirjgisjgkrjgkjglkjg rigjirjg lkgjlkj glkjg lkfjglikfgjlkgjlkgjgjlfgjfgjljgldgj",
-      "image": "uploads/posts/image-1771067555401-496140067.png",
-      "postType": "image",
-      "author": {
-        "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
-        "name": "Saad Hasan",
-        "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
-      },
-      "comments": [],
-      "likes": [],
-      "createAt": "2026-02-14T11:12:35.463Z"
     },
     {
       "id": "13ec3044-a665-414a-bbce-74ec70df53e4",
@@ -323,18 +331,99 @@
       "createAt": "2026-02-14T11:39:10.608Z"
     },
     {
-      "id": "8c11dcdc-adf0-48d7-aa5e-a89fd912c1eb",
-      "content": "মাই নেম ইজ ইউসুফ",
-      "image": "uploads/posts/image-1771079772055-620995626.png",
+      "id": "11a11515-e940-4453-b43a-cdeac2e56361",
+      "content": "bikash 100%",
+      "image": "uploads/posts/image-1771163006326-464135560.png",
       "postType": "image",
       "author": {
         "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
         "name": "Saad Hasan",
         "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
       },
-      "comments": [],
+      "comments": [
+        {
+          "id": "0ce7a13c-61fb-478f-875e-1e171b9201c8",
+          "comment": "Bikash Tikash Mani na",
+          "createdAt": "2026-02-15T15:30:36.904Z",
+          "author": {
+            "id": "c90ece72-f3b6-461f-97df-4fa9e8ce45a1",
+            "name": "Md Badrul Alam",
+            "avatar": "uploads/avatar/avatar-1770798551222-945259606.png"
+          }
+        }
+      ],
       "likes": [],
-      "createAt": "2026-02-14T14:36:12.083Z"
+      "createAt": "2026-02-15T13:43:26.343Z"
+    },
+    {
+      "id": "ea8aafb4-3c23-47dd-b201-966abefd0eb9",
+      "content": "Rapid ERP",
+      "image": "uploads/posts/image-1771163137779-493023486.png",
+      "postType": "image",
+      "author": {
+        "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+        "name": "Saad Hasan",
+        "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
+      },
+      "comments": [
+        {
+          "id": "9a3ff284-f45f-482c-b721-af4bd9791da4",
+          "comment": "HI",
+          "createdAt": "2026-02-15T15:24:29.910Z",
+          "author": {
+            "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+            "name": "Saad Hasan",
+            "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
+          }
+        },
+        {
+          "id": "04d727df-c9ca-4840-9064-f98d25183ce9",
+          "comment": "Hello",
+          "createdAt": "2026-02-15T15:25:27.996Z",
+          "author": {
+            "id": "6fd3ed42-2275-4d5f-a436-e5a3bf586c56",
+            "name": "Saad Hasan",
+            "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
+          }
+        },
+        {
+          "id": "c86e71f7-7610-49eb-817f-dfe2be720474",
+          "comment": "Who Am I?",
+          "createdAt": "2026-02-15T15:30:15.785Z",
+          "author": {
+            "id": "c90ece72-f3b6-461f-97df-4fa9e8ce45a1",
+            "name": "Md Badrul Alam",
+            "avatar": "uploads/avatar/avatar-1770798551222-945259606.png"
+          }
+        }
+      ],
+      "likes": [],
+      "createAt": "2026-02-15T13:45:37.805Z"
+    },
+    {
+      "id": "7a6e2711-046c-4adb-b4fc-d2560f61bcc8",
+      "content": "This is me\r\n",
+      "image": "uploads/posts/image-1771169490935-807581619.png",
+      "postType": "image",
+      "author": {
+        "id": "c90ece72-f3b6-461f-97df-4fa9e8ce45a1",
+        "name": "Md Badrul Alam",
+        "avatar": "uploads/avatar/avatar-1770798551222-945259606.png"
+      },
+      "comments": [
+        {
+          "id": "fa567793-420b-44a7-84c3-62bc9b92f66f",
+          "comment": "i am comment on me",
+          "createdAt": "2026-02-15T15:32:03.125Z",
+          "author": {
+            "id": "c90ece72-f3b6-461f-97df-4fa9e8ce45a1",
+            "name": "Md Badrul Alam",
+            "avatar": "uploads/avatar/avatar-1770798551222-945259606.png"
+          }
+        }
+      ],
+      "likes": [],
+      "createAt": "2026-02-15T15:31:30.961Z"
     }
   ],
   "comments": [],
