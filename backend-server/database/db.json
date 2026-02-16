@@ -60,6 +60,16 @@
             "name": "Saad Hasan",
             "avatar": "uploads/avatar/avatar-1708789609571-36760872.jpeg"
           }
+        },
+        {
+          "id": "78f7da26-a292-4011-a2a0-4e904a640f16",
+          "comment": "hi",
+          "createdAt": "2026-02-15T16:20:33.589Z",
+          "author": {
+            "id": "c90ece72-f3b6-461f-97df-4fa9e8ce45a1",
+            "name": "Md Badrul Alam",
+            "avatar": "uploads/avatar/avatar-1770798551222-945259606.png"
+          }
         }
       ],
       "likes": [
@@ -327,7 +337,9 @@
         "avatar": "uploads/avatar/avatar-1770716424532-672016528.jpg"
       },
       "comments": [],
-      "likes": [],
+      "likes": [
+        "6fd3ed42-2275-4d5f-a436-e5a3bf586c56"
+      ],
       "createAt": "2026-02-14T11:39:10.608Z"
     },
     {
@@ -422,7 +434,9 @@
           }
         }
       ],
-      "likes": [],
+      "likes": [
+        "6fd3ed42-2275-4d5f-a436-e5a3bf586c56"
+      ],
       "createAt": "2026-02-15T15:31:30.961Z"
     }
   ],

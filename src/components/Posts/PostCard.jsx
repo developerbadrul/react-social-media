@@ -1,15 +1,20 @@
+import { useState } from "react";
 import PostAction from "./PostAction";
 import PostBody from "./PostBody";
 import PostComments from "./PostComments";
 import PostHeader from "./PostHeader";
 
 const PostCard = ({ post }) => {
+    const [likes, setLikes] = useState(post.likes ?? []);
+    
     return (
         <article className="card mt-6 lg:mt-8">
             <PostHeader post={post} />
             <PostBody poster={post?.image} content={post?.content} />
             <PostAction
-                // postId={post?.id}
+                postId={post?.id}
+                onLike={setLikes}
+                likes={likes}
                 commentCount={post?.comments?.length}
             />
             <PostComments post={post} />
